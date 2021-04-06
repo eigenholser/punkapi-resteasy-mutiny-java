@@ -53,3 +53,4 @@ REST is easy peasy with this Hello World RESTEasy resource.
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
 [Getting Started](https://quarkus.io/guides/getting-started)
+[Reactive with Mutiny](https://redhat-developer-demos.github.io/quarkus-tutorial/quarkus-tutorial/reactive.html)
