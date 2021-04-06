@@ -22,10 +22,6 @@ public class Main {
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<List<Beer>> getBeers() {
         System.out.println("**** Getting Beers ****");
-        Uni<List<Beer>> beers = punk.get(1);
-
-//        System.out.println(beers);
-
-        return beers;
+        return punk.get(1);
     }
 }
