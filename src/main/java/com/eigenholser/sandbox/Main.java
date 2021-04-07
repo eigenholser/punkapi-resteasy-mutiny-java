@@ -22,12 +22,16 @@ public class Main {
     @Produces(MediaType.APPLICATION_JSON)
     public Multi<Beer> getBeers() {
         System.out.println("**** Getting Beers ****");
-        return Multi.createBy().repeating()
+        Multi<Beer> beers = Multi.createBy().repeating()
                 .uni(() -> new AtomicInteger(), p -> {
                     System.out.println("Page: " + p);
                     return punk.get(p.incrementAndGet());
                 })
                 .until(l -> l.isEmpty())
         .onItem().disjoint();
+
+        return beers
+                .transform().byFilteringItemsWith(b -> b.getAbv() < 4)
+                .transform().byTakingFirstItems(3);
     }
 }
